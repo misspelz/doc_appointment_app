@@ -13,8 +13,6 @@ const Hero = () => {
               src="/doc.jpg"
               width={800}
               height={800}
-              // layout="responsive"
-              // style={{aspectRatio: "1/2"}}
               className="absolute inset-0 h-full w-full  rounded-3xl object-cover"
             />
           </div>
