@@ -24,7 +24,10 @@ const Hero = () => {
             </h2>
 
             <p className="mt-4 text-gray-600">
-            Discovering and scheduling appointments with your preferred doctors has never been easier. Our platform streamlines the process, allowing you to seamlessly find and book appointments with the healthcare professionals you trust.
+              Discovering and scheduling appointments with your preferred
+              doctors has never been easier. Our platform streamlines the
+              process, allowing you to seamlessly find and book appointments
+              with the healthcare professionals you trust.
             </p>
 
             <Button className="mt-10">Explore Now!</Button>
