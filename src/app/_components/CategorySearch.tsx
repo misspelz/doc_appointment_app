@@ -22,7 +22,6 @@ interface Category {
 
 const CategorySearch = () => {
   const [categories, setCategories] = useState<Category[]>([]);
-  console.log("categories", categories);
 
   const CategoryList = () => {
     GlobalApi.getCategory().then((resp) => {
