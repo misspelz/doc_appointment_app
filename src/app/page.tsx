@@ -1,10 +1,13 @@
 import Hero from "@/app/_components/Hero";
+import CategorySearch from "./_components/CategorySearch";
 
 export default function Home() {
   return (
-    <div>
+    <>
       {/* Hero Section */}
       <Hero />
-    </div>
+      {/* Search Bar + Categories */}
+      <CategorySearch />
+    </>
   );
 }
