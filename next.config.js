@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 
-// config.js
 const HOST_NAME = process.env.NEXT_PUBLIC_CLOUDINARY;
 const PROTOCOL = process.env.NEXT_PUBLIC_PROTOCOL;
 
