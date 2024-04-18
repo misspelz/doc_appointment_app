@@ -10,10 +10,12 @@ const axiosClient = axios.create({
   },
 });
 
-const getCategory = () => axiosClient.get("categories?populate=*");
+const getCategory = () => axiosClient.get("/categories?populate=*");
+const getDoctorList = () => axiosClient.get("/doctors?populate=*");
 
 const GlobalApi = {
   getCategory: getCategory,
+  getDoctorList: getDoctorList,
 };
 
 export default GlobalApi;
