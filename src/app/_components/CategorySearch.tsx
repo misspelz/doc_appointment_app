@@ -21,16 +21,23 @@ interface Category {
 }
 
 const CategorySearch = () => {
+  // const [loading, setLoading] = useState(true);
   const [categories, setCategories] = useState<Category[]>([]);
 
-  const CategoryList = () => {
-    GlobalApi.getCategory().then((resp) => {
-      setCategories(resp.data.data);
-    });
-  };
-
   useEffect(() => {
-    CategoryList();
+    const fetchCategories = async () => {
+      // setLoading(true);
+      try {
+        const resp = await GlobalApi.getCategory();
+        setCategories(resp.data.data);
+      } catch (error) {
+        console.error("Error fetching categories:", error);
+      } finally {
+        // setLoading(false);
+      }
+    };
+
+    fetchCategories();
   }, []);
 
   return (
@@ -50,21 +57,31 @@ const CategorySearch = () => {
       </div>
 
       {/* Display Categories */}
-      <div className="grid grid-cols-3 mt-5">
-        {categories.map((category, index) => (
-          <div
-            key={index}
-            className="flex flex-col items-center gap-2 text-center cursor-pointer bg-blue-50 m-2 rounded-lg p-5 hover:scale-110 transition-all ease-in-out"
-          >
-            <Image
-              src={category?.attributes?.Icon?.data?.attributes?.url}
-              alt="icon"
-              width={30}
-              height={30}
-            />
-            <label className="text-sm">{category?.attributes?.Name}</label>
-          </div>
-        ))}
+      <div className="grid grid-cols-3 md:grid-cols-4 lg:grid-cols-6 mt-5 ">
+        {categories.length > 0
+          ? categories.map((category, index) => (
+              <div
+                key={index}
+                className="flex flex-col items-center gap-2 text-center cursor-pointer bg-blue-50 m-2 rounded-lg p-5 hover:scale-110 transition-all ease-in-out "
+              >
+                <Image
+                  src={category?.attributes?.Icon?.data?.attributes?.url}
+                  alt="icon"
+                  width={30}
+                  height={30}
+                />
+                <label className="text-sm max-w-xs overflow-hidden whitespace-nowrap overflow-ellipsis">
+                  {category?.attributes?.Name}
+                </label>
+              </div>
+            ))
+          : // skeleton effect
+            [1, 2, 3, 4, 5, 6].map((item, index) => (
+              <div
+                key={index}
+                className="m-2 h-[100px] w-[90px] sm:w-[100px] md:w-[130px] bg-slate-200 rounded-lg animate-pulse"
+              ></div>
+            ))}
       </div>
     </div>
   );
