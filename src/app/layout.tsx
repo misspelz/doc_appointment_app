@@ -23,7 +23,7 @@ export default function RootLayout({
       <body className={inter.className}>
         {/* <Suspense fallback={<Loading />}> */}
         <Header />
-        <div className="px-4 md:px-20 mt-[60px]">{children}</div>
+        <div className="px-4 md:px-20 mt-[75px]">{children}</div>
         <Footer />
         {/* </Suspense> */}
       </body>
